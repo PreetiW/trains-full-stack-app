@@ -1,5 +1,5 @@
 import React from 'react';
-import './trainsSchedule.css';
+import './TrainsSchedule.css';
 
 export interface TrainData {
     trainId: number;

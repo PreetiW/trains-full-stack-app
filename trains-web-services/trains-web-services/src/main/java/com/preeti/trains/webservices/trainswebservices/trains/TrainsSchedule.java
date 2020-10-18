@@ -1,16 +1,30 @@
 package com.preeti.trains.webservices.trainswebservices.trains;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class TrainsSchedule {
 	
-	private long id;
+	@Id
+	private Long trainId;
+	
+	
 	private String trainName;
 	private String sourceStation;
 	private String destinationStation;
+	private String departureTime;
+	private String arrivalTime;
+	private String totalTravelDuration;
 	
-	public TrainsSchedule(long id, String trainName, String sourceStation, String destinationStation,
+	protected TrainsSchedule() {
+		
+	}
+	
+	public TrainsSchedule(Long id, String trainName, String sourceStation, String destinationStation,
 			String departureTime, String arrivalTime, String totalTravelDuration) {
 		super();
-		this.id = id;
+		this.trainId = id;
 		this.trainName = trainName;
 		this.sourceStation = sourceStation;
 		this.destinationStation = destinationStation;
@@ -20,11 +34,11 @@ public class TrainsSchedule {
 	}
 	
 	
-	public long getId() {
-		return id;
+	public Long getTrainId() {
+		return trainId;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setId(Long id) {
+		this.trainId = id;
 	}
 	public String getTrainName() {
 		return trainName;
@@ -62,10 +76,7 @@ public class TrainsSchedule {
 	public void setTotalTravelDuration(String totalTravelDuration) {
 		this.totalTravelDuration = totalTravelDuration;
 	}
-	private String departureTime;
-	private String arrivalTime;
-	private String totalTravelDuration;
 
-	
+
 
 }
