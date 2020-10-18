@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Loading } from './components/loading/Loading';
-import { TrainData, TrainsSchedule } from './components/train-schedule/TrainsSchedule';
+import { TrainsSchedule } from './components/train-schedule/TrainsSchedule';
 import { TrainsForm } from './components/trains-form/TrainsForm';
+import { LOADING_COMPONENT, TRAINS_FORM_COMPONENT, TRAINS_SCHEDULE_COMPONENT } from './constants';
 import TrainsDataService from './service/TrainsDataService';
+import { TrainData } from './types/trains.types';
 
-type EventHandlerProps = {
-  onClick: (e: React.MouseEvent) => void;
-}
 
 function App() {
-  const TRAINS_FORM = "trains_form";
-  const TRAINS_SCHEDULE = "trains_schedule";
-  const LOADING = "loading";
 
-  const [displayComponent, setDisplayComponent] = useState(TRAINS_FORM)
+  const [displayComponent, setDisplayComponent] = useState(TRAINS_FORM_COMPONENT)
   const [trainsScheduleData, setTrainsScheduleData] = useState<TrainData[] | undefined>()
 
   const switchDisplayComponent = (displayComponent: string) => {
@@ -22,14 +18,13 @@ function App() {
   }
 
   const displayAllTrainsSchedule = () => {
-    switchDisplayComponent(LOADING);
+    switchDisplayComponent(LOADING_COMPONENT);
 
     TrainsDataService.retrieveAllTainsData()
       .then((response) => {
-        console.log("Response:", response)
         if (response.data) {
           setTrainsScheduleData(response.data);
-          switchDisplayComponent(TRAINS_SCHEDULE);
+          switchDisplayComponent(TRAINS_SCHEDULE_COMPONENT);
         }
       }).catch(error => {
         console.log(error)
@@ -37,22 +32,12 @@ function App() {
 
   }
 
-  const submitTrainScheduleData = () => {
-    switchDisplayComponent(LOADING);
-
-    let newTrainSchedule: TrainData = {
-      trainId: 2,
-      trainName: "Manavar Express",
-      sourceStation: "Pune",
-      destinationStation: "Kalyan",
-      departureTime: "1:00 PM",
-      arrivalTime: "5:00 PM",
-      totalTravelDuration: "5hr 30m",
-    }
+  const submitTrainScheduleData = (newTrainSchedule: TrainData) => {
+    switchDisplayComponent(LOADING_COMPONENT);
 
     TrainsDataService.createTrainsSchedule(newTrainSchedule)
       .then((response) => {
-        console.log("Create:", response)
+        displayAllTrainsSchedule();
       })
       .catch(error => { console.log(error) })
   }
@@ -64,19 +49,21 @@ function App() {
         <img src={process.env.PUBLIC_URL + '/train-sample.jpg'} className="train-img" alt="train" />
         <div className="train-text">Trains Schedules</div>
         <div className="button-wrapper">
-          {/* <button className="button" onClick={() => switchDisplayComponent(TRAINS_FORM)}>Add Train Schedule</button> */}
-          <button className="button" onClick={submitTrainScheduleData}>Add Train Schedule</button>
+          <button className="button" onClick={() => switchDisplayComponent(TRAINS_FORM_COMPONENT)}>Add Train Schedule</button>
           <button className="button" onClick={displayAllTrainsSchedule}>Diplay Trains Schedule</button>
         </div>
       </header>
 
       <section>
-        {displayComponent === TRAINS_FORM ? <TrainsForm /> : null}
-        {displayComponent === TRAINS_SCHEDULE ? trainsScheduleData?.map((trainData: TrainData, key) => {
-          console.log("Checking", trainData)
-          return <TrainsSchedule key={key} {...trainData} />
-        }) : null}
-        {displayComponent === LOADING ? <Loading loadingText="Please wait, loading trains schedule..." /> : null}
+        {displayComponent === TRAINS_FORM_COMPONENT ? <TrainsForm onFormSubmit={submitTrainScheduleData} /> : null}
+
+        {displayComponent === TRAINS_SCHEDULE_COMPONENT ?
+          trainsScheduleData?.map((trainData: TrainData, key) => {
+            return <TrainsSchedule key={key} {...trainData} />
+          })
+          : null}
+
+        {displayComponent === LOADING_COMPONENT ? <Loading loadingText="Please wait, saving and loading trains data..." /> : null}
       </section>
     </div>
   );

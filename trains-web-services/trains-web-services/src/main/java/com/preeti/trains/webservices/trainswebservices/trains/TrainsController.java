@@ -17,24 +17,14 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @CrossOrigin(origins="http://localhost:4200")
 public class TrainsController {
 	
-	@Autowired
-	private TrainsHardCodedService trainsService;
 	
 	@Autowired
 	private TrainsJpaRepository trainsJpaRepository;
 	
-	// GET
-	// URI - /hello-world
-	// method - "Hello World"
-	@GetMapping( path = "/hello-world")
-	public String helloWorld() {
-		return "Hello Preeti Wadhwani, You are most beautiful!";
-	}
-	
+
 	@GetMapping(path="/trains-schedule")
 	public List<TrainsSchedule> getAllTrainsScheduleData() {
 		return trainsJpaRepository.findAll();
-		//return trainsService.findAll();
 	}
 	
 	@PostMapping(path="/trains")

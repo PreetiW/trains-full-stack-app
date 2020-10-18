@@ -1,0 +1,9 @@
+// API
+export const API_ENDPOINT = "http://localhost:8080"
+
+
+// Home Screen
+
+export const TRAINS_FORM_COMPONENT = "TRAINS_FORM_COMPONENT";
+export const TRAINS_SCHEDULE_COMPONENT = "TRAINS_SCHEDULE_COMPONENT";
+export const LOADING_COMPONENT = "LOADING_COMPONENT";

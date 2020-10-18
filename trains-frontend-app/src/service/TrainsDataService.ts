@@ -1,14 +1,15 @@
 import axios from 'axios';
-import { TrainData } from '../components/train-schedule/TrainsSchedule';
+import { API_ENDPOINT } from '../constants';
+import { TrainData } from '../types/trains.types';
 
 class TrainsDataService {
 
     createTrainsSchedule(trainData: TrainData) {
-        return axios.post('http://localhost:8080/trains', trainData);
+        return axios.post(`${API_ENDPOINT}/trains`, trainData);
     }
 
     retrieveAllTainsData() {
-        return axios.get<TrainData[]>('http://localhost:8080/trains-schedule');
+        return axios.get<TrainData[]>(`${API_ENDPOINT}/trains-schedule`);
     }
 
 }

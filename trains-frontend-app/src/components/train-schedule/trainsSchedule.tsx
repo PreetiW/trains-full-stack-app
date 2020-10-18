@@ -1,15 +1,8 @@
 import React from 'react';
+import { TrainData } from '../../types/trains.types';
 import './TrainsSchedule.css';
 
-export interface TrainData {
-    trainId: number;
-    trainName: string;
-    sourceStation: string;
-    destinationStation: string;
-    departureTime: string;
-    arrivalTime: string;
-    totalTravelDuration: string;
-}
+
 
 export const TrainsSchedule = (trainData: TrainData) => {
 
