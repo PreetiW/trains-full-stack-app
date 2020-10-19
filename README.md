@@ -4,10 +4,10 @@ This repo contains both **frontend (React + Typescript) and backend (Spring Boot
 
 # What do you need for the Environment?
 * Firstly download [Node](https://nodejs.org/) (supports Node 10.3+, but the latest Node LTS is always recommended). Use [this](https://www.youtube.com/playlist?list=PLBBog2r6uMCQN4X3Aa_jM9qVjgMCHMWx6) for step by step installation guide 
-*  Java 8 and Eclipse - Use [this](https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3) for step by step installation guide ( Preffred Eclipse version: eclipse-jee-2020-06)
+*  Download and install Java 8 and Eclipse, Maven 3.2+ - Use [this](https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3) for step by step installation guide ( Preffred Eclipse version: eclipse-jee-2020-06)
 * Any editor or your choice
 
-# How to Run the Project
+# How to Run the Project?
 * clone the repo on your machine: `git clone 'GITHUB_PROJECT_URL'`
 * navigate inside the downloaded project: `cd trains-full-stack-app`
 * open eclipse
