@@ -2,6 +2,8 @@
 
 This repo contains both **frontend (React + Typescript) and backend (Spring Boot + H2 Database)** code for Trains Schedule app. Trains Schedule app allows you to to enter details about different trains and display all the trains schedule information.
 
+Check out the demo [here](https://www.loom.com/share/e7f1720cb1b6425d8b29ab6e3b71f70f)
+
 # What do you need for the Environment?
 * Firstly download [Node](https://nodejs.org/) (supports Node 10.3+, but the latest Node LTS is always recommended). Use [this](https://www.youtube.com/playlist?list=PLBBog2r6uMCQN4X3Aa_jM9qVjgMCHMWx6) for step by step installation guide 
 *  Download and install Java 8 and Eclipse, Maven 3.2+ - Use [this](https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3) for step by step installation guide ( Preffred Eclipse version: eclipse-jee-2020-06)
