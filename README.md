@@ -33,8 +33,9 @@ Once you will stop the backend server in eclipse, the trains data entered by you
 * follow this: `right click -> Run As -> JUnit Test`
 
 ### FrontEnd
-
-
+* open terminal inside the project folder
+* navigate inside the trains-frontend-app folder: `cd trains-frontend-app`
+* run `npm test`
 
 # Documentation & Useful links
 * [Sprint Initializr](https://start.spring.io/)
