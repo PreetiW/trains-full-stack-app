@@ -25,6 +25,16 @@ This repo contains both **frontend (React + Typescript) and backend (Spring Boot
 _Note: The project is using [H2 in-memory database](https://www.h2database.com/html/main.html), which means that data will not persist on the disk. 
 Once you will stop the backend server in eclipse, the trains data entered by you will be lost_ 
 
+# How to Run the unit tests?
+
+### Backend
+* open project in eclipse following the above mentioned steps
+* select the `src/test/java` folder from project explorer
+* follow this: `right click -> Run As -> JUnit Test`
+
+### FrontEnd
+
+
 
 # Documentation & Useful links
 * [Sprint Initializr](https://start.spring.io/)
