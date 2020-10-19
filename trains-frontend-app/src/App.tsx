@@ -22,9 +22,7 @@ function App() {
 
     TrainsDataService.retrieveAllTainsData()
       .then((response) => {
-        console.log("PReeti", response);
         if (response.data) {
-          console.log("has", response);
           setTrainsScheduleData(response.data);
           switchDisplayComponent(TRAINS_SCHEDULE_COMPONENT);
         }

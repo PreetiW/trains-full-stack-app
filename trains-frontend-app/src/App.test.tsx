@@ -2,11 +2,10 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import App from './App';
 
-import TrainsDataService from './service/TrainsDataService';
-jest.mock('./service/TrainsDataService',  () => {
+jest.mock('./service/TrainsDataService', () => {
   return {
     retrieveAllTainsData: () => {
-      return Promise.resolve({data: [{train_id:1, train_name: "Deccan Express"}]});
+      return Promise.resolve({ data: [{ train_id: 1, train_name: "Deccan Express" }] });
     },
   };
 });
@@ -45,14 +44,6 @@ it('should render the App component', () => {
 it("should show trains form when Add Train Schedule button is clicked", () => {
   const { getByText } = render(<App />);
   fireEvent.click(getByText("Add Train Schedule"));
-  expect(getByText('Trains Form Component')).toBeTruthy();
-});
-
-it("should show trains schedule list when Diplay Trains Schedule button is clicked", () => {
-
-
-  const { getByText } = render(<App />);
-  fireEvent.click(getByText("Diplay Trains Schedule"));
   expect(getByText('Trains Form Component')).toBeTruthy();
 });
 
