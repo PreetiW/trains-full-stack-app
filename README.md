@@ -40,6 +40,6 @@ Once you will stop the backend server in eclipse, the trains data entered by you
 * run `npm test`
 
 # Documentation & Useful links
-* [Sprint Initializr](https://start.spring.io/)
+* [Spring Initializr](https://start.spring.io/)
 * [Create React App](https://create-react-app.dev/docs/getting-started/)
 * [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup)
